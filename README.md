@@ -1,2 +1,2 @@
 # Titan
-Initial Version of mCube Titan Module Command Parser
+Initial Version of  mCube Arduino Titan Module Shield
