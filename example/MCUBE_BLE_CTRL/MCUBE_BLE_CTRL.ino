@@ -37,15 +37,14 @@ void setup()
     ; // wait for serial port to connect. Needed for native USB port only
   }
   Serial.println("Send Control Bytes...");
-	trans_msg_t.PAYLOAD = (uint8_t *)malloc(sizeof(char[ARDBUFFER+1]));                                                                                
-	if(trans_msg_t.PAYLOAD == NULL) 
-		Serial.println("Memory Allocation Failed");                                                                                                                    
-	
-	recv_msg_t.PAYLOAD = (uint8_t *)malloc(sizeof(char[ARDBUFFER+1]));                                                                                
-	if(recv_msg_t.PAYLOAD == NULL)                                                                                                                  
-  	Serial.println("Memory Allocation Failed"); 
+  trans_msg_t.PAYLOAD = (uint8_t *)malloc(sizeof(char[ARDBUFFER+1]));                                                                                
+  if(trans_msg_t.PAYLOAD == NULL) 
+	Serial.println("Memory Allocation Failed");                                                                                                                   
+  recv_msg_t.PAYLOAD = (uint8_t *)malloc(sizeof(char[ARDBUFFER+1]));                                                                                
+  if(recv_msg_t.PAYLOAD == NULL)         
+      Serial.println("Memory Allocation Failed"); 
 		
-	ble.init();		
+   ble.init();		
 }
 
 uint8_t Ascii2Hex(uint8_t inbyte)
@@ -198,10 +197,10 @@ void loop()
 		}
 		if (!ble.checkAscii(inByte))
 		{
-		  Serial.println();
-		  Serial.println("Not Valid Command Format, Please input Hexdecimal digit (i.e. 0 - 9, a - F, or A - F) !!");
-		  clear();
-		  return;
+			Serial.println();
+			Serial.println("Not Valid Command Format, Please input Hexdecimal digit (i.e. 0 - 9, a - F, or A - F) !!");
+			clear();
+			return;
 		}
 		if (inByte != '\r' && inByte != '\n')
 		{
@@ -283,8 +282,8 @@ void loop()
 							Serial.print("PAYLOAD[");
 							Serial.print(payLoadIndex);
 							Serial.print("]: ");
-							ble.PrintHex(trans_msg_t.PAYLOAD[payLoadIndex]);  
-              Serial.println();
+							ble.PrintHex(trans_msg_t.PAYLOAD[payLoadIndex]);
+							Serial.println();
 							if(payLoadIndex < trans_msg_t.PAYLOAD_LEN)
 								payLoadIndex++;
 						}
@@ -305,7 +304,7 @@ void loop()
 					/* Payload Length = 0 */
 					else if ( trans_msg_t.PAYLOAD_LEN == 0 && (i % 2 == 1) && !isEnd)
 					{				
-						*(trans_msg_t.PAYLOAD) = (uint8_t) 0; // (cmd[6]) << 4 | (cmd[7]);                                               
+						*(trans_msg_t.PAYLOAD) = (uint8_t) 0; // (cmd[6]) << 4 | (cmd[7]);                  
 						toBTCommand[i/2] = (uint8_t) 0;  					
 						Serial.print("PAYLOAD: ");
 						ble.PrintHex(*(trans_msg_t.PAYLOAD));
@@ -374,7 +373,7 @@ void loop()
 				{
 					for (int y = 0; y < cmdEndIndex; y++)
 					{
-						Serial.print("y=");
+					    Serial.print("y=");
 					    Serial.println(y);
 					    Serial.print("0x"); 
        
