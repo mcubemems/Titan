@@ -100,13 +100,13 @@ void Titan::PrintHexByteArray(uint8_t *data, uint8_t length) // prints 8-bit byt
 		if( i == 0)
 			Serial.print("0x");
 	
-	if (data[i]<0x10) 
-	{
-		Serial.print("0");
-	} 
+		if (data[i]<0x10) 
+		{
+			Serial.print("0");
+		} 
       	Serial.print(data[i],HEX); 
       	Serial.print(" "); 
-  }
+  	}
 }
 
 void Titan::printHeaderCmd(uint8_t cmdBytes)
@@ -199,7 +199,7 @@ void Titan::printHeaderCmd(uint8_t cmdBytes)
 
 void Titan::commandTRANS(uint8_t bCmdHeader, uint8_t* baCmdBytes, uint8_t len)
 {
-  if (Debug) 
+  	if (Debug) 
 	{	
 		Serial.print("Titan commandTRANS() Cmd Header = 0x");
 		Serial.println(byte(bCmdHeader), HEX);
@@ -219,6 +219,6 @@ void Titan::commandTRANS(uint8_t bCmdHeader, uint8_t* baCmdBytes, uint8_t len)
 		return;
 	}
 
-  Serial1.write(baCmdBytes, len);
+  	Serial1.write(baCmdBytes, len);
 	delayMicroseconds(100); // pauses for 100 microseconds  
   }
