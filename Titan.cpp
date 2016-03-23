@@ -82,30 +82,30 @@ bool Titan::checkAscii(uint8_t thisChar)
 
 void Titan::PrintHex(uint8_t data) // prints 8-bit data in hex with leading zeroes
 {
-  Serial.print("0x"); 
+  	Serial.print("0x"); 
        
-  if (data < 0x10) 
+  	if (data < 0x10) 
 	{
 		Serial.print("0");
 	} 
-    Serial.print(data,HEX); 
-    Serial.print(" "); 
+    	Serial.print(data,HEX); 
+    	Serial.print(" "); 
 }
 
 void Titan::PrintHexByteArray(uint8_t *data, uint8_t length) // prints 8-bit byte array data in hex with leading zeroes
 {
      
-  for (int i=0; i<length; i++) 
+  	for (int i=0; i<length; i++) 
 	{ 
-	if( i == 0)
-		Serial.print("0x");
+		if( i == 0)
+			Serial.print("0x");
 	
 	if (data[i]<0x10) 
 	{
 		Serial.print("0");
 	} 
-      Serial.print(data[i],HEX); 
-      Serial.print(" "); 
+      	Serial.print(data[i],HEX); 
+      	Serial.print(" "); 
   }
 }
 
