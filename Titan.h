@@ -12,17 +12,17 @@
 
 struct titan_command_t
 {
-  uint8_t CMD_HEADER;
-  uint8_t CTRL_RESPONSE;
-  uint8_t PAYLOAD_LEN;
-  uint8_t *PAYLOAD;
-  uint8_t CR;
-  uint8_t NL;
+	uint8_t CMD_HEADER;
+	uint8_t CTRL_RESPONSE;
+	uint8_t PAYLOAD_LEN;
+	uint8_t *PAYLOAD;
+	uint8_t CR;
+	uint8_t NL;
 } ;
 
 typedef enum
 {
-    PEDOMETER_CONTROL				=0b00010000, //0x10       
+    PEDOMETER_CONTROL							=0b00010000, //0x10       
     PEDOMETER_CONTROL_RESPONSE                  =0b00010001, //0x11   
     PEDOMETER_RECORD_GET                        =0b00010010, //0x12   
     PEDOMETER_RECORD_GET_RESPONSE               =0b00010011, //0x13   
@@ -49,7 +49,8 @@ typedef enum
     REPORTER_CONTROL                            =0b10000000, //0x80
     REPORTER_CONTROL_RESPONSE                   =0b10000001, //0x81
 
-}   command_header_t;
+} command_header_t;
+
 class Titan
 {
 
