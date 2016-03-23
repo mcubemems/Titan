@@ -22,7 +22,7 @@ struct titan_command_t
 
 typedef enum
 {
-    PEDOMETER_CONTROL														=0b00010000, //0x10       
+    PEDOMETER_CONTROL				=0b00010000, //0x10       
     PEDOMETER_CONTROL_RESPONSE                  =0b00010001, //0x11   
     PEDOMETER_RECORD_GET                        =0b00010010, //0x12   
     PEDOMETER_RECORD_GET_RESPONSE               =0b00010011, //0x13   
@@ -41,13 +41,13 @@ typedef enum
     SLEEP_MONITOR_NOTIFICATION_ENABLE_RESPONSE	=0b00100101, //0x25
     SLEEP_MONITOR_EVENT_NOTIFICATION            =0b00100110, //0x26 
 	
-		//Sensor Control
-		SENSOR_CONTROL                              =0b01110000, //0x70
+    //Sensor Control
+    SENSOR_CONTROL                              =0b01110000, //0x70
     SENSOR_CONTROL_RESPONSE                     =0b01110001, //0x71
 
-	 	//Reporter commands
-		REPORTER_CONTROL                            =0b10000000, //0x80
-		REPORTER_CONTROL_RESPONSE                   =0b10000001, //0x81
+    //Reporter commands
+    REPORTER_CONTROL                            =0b10000000, //0x80
+    REPORTER_CONTROL_RESPONSE                   =0b10000001, //0x81
 
 }   command_header_t;
 class Titan
